@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>FSM售卖机 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://xswnb.github.io/xswnb/index.html">
+  <meta name="description" content="Verilog中的自动售卖机FSM设计教程在这篇教程中，我们将通过设计一个简单的自动售卖机来学习如何使用Verilog语言实现有限状态机（FSM）。自动售卖机将接受两种硬币：5元和10元，以售卖一个15元的商品为例。 设计目标我们的目标是设计一个FSM，它可以：  接受5元和10元两种输入 当累计金额达到商品价格15元时，释放商品 如果投入超过商品价格，计算并返回找零  设计步骤1. 定义状态首先">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FSM售卖机">
+<meta property="og:url" content="https://xswnb.github.io/xswnb/2024/02/21/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Verilog中的自动售卖机FSM设计教程在这篇教程中，我们将通过设计一个简单的自动售卖机来学习如何使用Verilog语言实现有限状态机（FSM）。自动售卖机将接受两种硬币：5元和10元，以售卖一个15元的商品为例。 设计目标我们的目标是设计一个FSM，它可以：  接受5元和10元两种输入 当累计金额达到商品价格15元时，释放商品 如果投入超过商品价格，计算并返回找零  设计步骤1. 定义状态首先">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-21T09:48:23.000Z">
+<meta property="article:modified_time" content="2024-02-21T09:52:34.489Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -67,9 +71,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-FSM售卖机" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-FSM售卖机" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/xswnb/2024/02/21/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/" class="article-date">
   <time class="dt-published" datetime="2024-02-21T09:48:23.000Z" itemprop="datePublished">2024-02-21</time>
@@ -82,8 +84,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/xswnb/2024/02/21/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/">FSM售卖机</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      FSM售卖机
     </h1>
   
 
@@ -125,163 +127,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-DVP接口" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/xswnb/2024/02/21/DVP%E6%8E%A5%E5%8F%A3/" class="article-date">
-  <time class="dt-published" datetime="2024-02-21T09:25:41.000Z" itemprop="datePublished">2024-02-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/xswnb/2024/02/21/DVP%E6%8E%A5%E5%8F%A3/">DVP接口</a>
-    </h1>
+    <a href="/xswnb/2024/02/21/DVP%E6%8E%A5%E5%8F%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">DVP接口</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h4 id="sensor接口之DVP"><a href="#sensor接口之DVP" class="headerlink" title="sensor接口之DVP"></a>sensor接口之DVP</h4><ul>
-<li>[什么是DVP]</li>
-<li>[DVP时序]<ul>
-<li>[PCLK、HSYNC、VSYNC对应关系]</li>
-<li>[sensor并行输出说明]</li>
-</ul>
-</li>
-<li>[实际测量DVP信号]</li>
-</ul>
-<h2 id="什么是DVP"><a href="#什么是DVP" class="headerlink" title="什么是DVP"></a>什么是DVP</h2><p>DVP（Digital Video Port） 是传统的sensor输出接口，采用并行输出方式，d数据位宽有8bit、10bit、12bit、16bit，是CMOS电平信号（重点是非差分信号），PCLK最大速率为96MHz，接口如下图：</p>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-8223537/2d4a9e6bf6b27a879ffa201de26ee0da.png" alt="DVP接口"></p>
-<p>DVP接口</p>
-<p><strong>PCLK</strong>：pixel clock ,像素时钟，每个时钟对应一个像素数据； <strong>HSYNC</strong>：horizonal synchronization，行同步信号 <strong>VSYNC</strong>：vertical synchronization，帧同步信号； <strong>DATA</strong>：像素数据，视频数据，具体位宽要看ISP是否支持； <strong>XCLK</strong>：或者MCLK，ISP芯片输出给驱动sensor的时钟； <strong>SCL</strong>，<strong>SDA</strong>：IIC用来读写sensor的寄存器，配置sensor。</p>
-<h2 id="DVP时序"><a href="#DVP时序" class="headerlink" title="DVP时序"></a>DVP时序</h2><h3 id="PCLK、HSYNC、VSYNC对应关系"><a href="#PCLK、HSYNC、VSYNC对应关系" class="headerlink" title="PCLK、HSYNC、VSYNC对应关系"></a>PCLK、HSYNC、VSYNC对应关系</h3><p>ISP与sensor通过DVP接口连接，ISP首先会给sensor一个XCLK，sensor内部的PLL会对计算，产生PCLK，PCLK由幅面（F_W、F_H）、帧率（FPS）决定，并存在如下关系：</p>
-<p>PCLK &#x3D; F_W * F_H * FPS</p>
-<p>以F_W &#x3D; 3556，F_H &#x3D; 1125，A_W &#x3D; 1920， A_H &#x3D; 1080，FPS &#x3D; 25（<strong>1080P25</strong>）为例，说明几个对应关系：</p>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-8223537/20be81f78dbedef098b25df2ac9cf903.png" alt="DVP时许"></p>
-<p>DVP时许</p>
-<p>注意：上图中标有错误，对照下文说明可以找出错误</p>
-<ul>
-<li>PCLK是一个像素传输的时间，所以<strong>HSYNC</strong>时间是<strong>PCLK</strong>的<strong>3556</strong>倍；</li>
-<li>在这3556个像素中，只有1920个像素是有效的（A_W大小），在剩下的1636个像素点时间内sensor是<strong>不传输数据</strong>的；</li>
-<li>VSYNC是帧同步信号，所以<strong>VSYNC</strong>时间是<strong>PCLK</strong>的<strong>3556*1125</strong>倍；</li>
-<li>同样只有在1920*1080个<strong>有效像素</strong>时间内，sensor在传输数据；</li>
-</ul>
-<h3 id="sensor并行输出说明"><a href="#sensor并行输出说明" class="headerlink" title="sensor并行输出说明"></a>sensor并行输出说明</h3><p><img src="https://ask.qcloudimg.com/http-save/yehe-8223537/c3788fb223fc4138bd0549ae44c3decb.png" alt="DVP并行输出"></p>
-<p>DVP并行输出</p>
-<p>图中有12bit通道传输像素数据，但有些ISP芯片只能接受并行输入，会丢弃sensor端输出的低两位，这会造成<strong>低照</strong>条件下，颜色之间<strong>过度明显</strong>。</p>
-<h2 id="实际测量DVP信号"><a href="#实际测量DVP信号" class="headerlink" title="实际测量DVP信号"></a>实际测量DVP信号</h2><ul>
-<li><strong>XCLK</strong></li>
-</ul>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-8223537/ddd6874f005ec64f9a3933c7cb4006a6.png" alt="XCLK"></p>
-<p>XCLK</p>
-<ul>
-<li><strong>PCLK</strong></li>
-</ul>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-8223537/329189f912cb98477b9db5109a9f7ddd.png" alt="PCLK"></p>
-<p>PCLK</p>
-<ul>
-<li><strong>HSYNC</strong></li>
-</ul>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-8223537/f556d858648997f0c2e2314afe40082e.png" alt="HSYNC"></p>
-<p>HSYNC</p>
-<ul>
-<li><strong>VSYNC</strong></li>
-</ul>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-8223537/c85e059e9aae6d670ba99b97638977de.png" alt="VSYNC"></p>
-<p>VSYNC</p>
-<ul>
-<li><strong>SCL</strong></li>
-</ul>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-8223537/28f8fb4decd3ec7c065f1788f407cef4.png" alt="SCL"></p>
-<p>SCL</p>
-<ul>
-<li><strong>视频帧同步头波形</strong></li>
-</ul>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-8223537/6e071212d36a403e93e872a22f9e4123.png" alt="视频帧同步"></p>
-<p>视频帧同步</p>
-<ul>
-<li><strong>多波形图</strong></li>
-</ul>
-<p><img src="https://ask.qcloudimg.com/http-save/yehe-8223537/c48f21df15855f37aad2c18d46b7ec54.png" alt="多信号"></p>
-<p>多信号</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://xswnb.github.io/xswnb/2024/02/21/DVP%E6%8E%A5%E5%8F%A3/" data-id="clsvleavv000098so1v5h7x5f" data-title="DVP接口" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/xswnb/2024/02/21/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-02-21T06:42:45.366Z" itemprop="datePublished">2024-02-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/xswnb/2024/02/21/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://xswnb.github.io/xswnb/2024/02/21/hello-world/" data-id="clsvhu1lv00006ssof8dc37xk" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 </section>
