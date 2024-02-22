@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>xswnb</title>
   
   
   <link href="https://xswnb.github.io/xswnb/atom.xml" rel="self"/>
@@ -10,7 +10,7 @@
   <id>https://xswnb.github.io/xswnb/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>swxiao</name>
     
   </author>
   
