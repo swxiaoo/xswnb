@@ -1,397 +1,498 @@
 <!DOCTYPE html>
-<html lang=zh>
+<html>
 <head>
   <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  <!-- Color theme for statusbar -->
-  <meta name="theme-color" content="#000000" />
-  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <title>归档: 2024 | Hexo</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://xswnb.github.io/xswnb/archives/2024/index.html">
+  <title>Hexo</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="创建一份图文并茂的AXI协议教程需要详细介绍AXI的核心概念、操作模式、传输类型等。我会以Markdown格式编写，包含基本的AXI介绍、关键特性、主要信号描述，并结合一些简单的WaveDrom图和Mermaid图来直观展示AXI传输的过程。  AXI协议教程简介高级外设互连(AXI)是高级微控制器总线架构(AMBA)的一部分，由ARM推出，用于高性能、高带宽、低延迟的片上通信。AXI协议支持高速">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AXI协议">
+<meta property="og:url" content="https://xswnb.github.io/xswnb/2024/02/22/AXI%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="创建一份图文并茂的AXI协议教程需要详细介绍AXI的核心概念、操作模式、传输类型等。我会以Markdown格式编写，包含基本的AXI介绍、关键特性、主要信号描述，并结合一些简单的WaveDrom图和Mermaid图来直观展示AXI传输的过程。  AXI协议教程简介高级外设互连(AXI)是高级微控制器总线架构(AMBA)的一部分，由ARM推出，用于高性能、高带宽、低延迟的片上通信。AXI协议支持高速">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-22T08:15:27.000Z">
+<meta property="article:modified_time" content="2024-02-22T09:05:33.691Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
-  <!-- Canonical links -->
-  <link rel="canonical" href="https://xswnb.github.io/xswnb/archives/2024/index.html">
-  
-  
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
-  
-  
-<link rel="stylesheet" href="/xswnb/css/style.css">
 
-  
-  
-  
-  
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/xswnb/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/xswnb/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/xswnb/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/xswnb/js/iconfont.js?v=1.1.0" ></script>
+
 <meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/xswnb/atom.xml" title="Hexo" type="application/atom+xml">
 </head>
-
-
-<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
-  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-  <div class="slimContent">
-    <div class="navbar-header">
-      
-      
-      <div class="profile-block text-center">
-        <a id="avatar" href="https://github.com/xswnb" target="_blank">
-          <img class="img-circle img-rotate" src="/xswnb/images/avatar.jpg" width="200" height="200">
-        </a>
-        <h2 id="name" class="hidden-xs hidden-sm">啸</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">swxiao</h3>
-        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shanghai, China</small>
-      </div>
-      
-      <div class="search" id="search-form-wrap">
-
-    <form class="search-form sidebar-form">
-        <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="搜索" />
-            <span class="input-group-btn">
-                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
-            </span>
-        </div>
-    </form>
-    <div class="ins-search">
-  <div class="ins-search-mask"></div>
-  <div class="ins-search-container">
-    <div class="ins-input-wrapper">
-      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
-      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-    </div>
-    <div class="ins-section-wrapper">
-      <div class="ins-section-container"></div>
-    </div>
-  </div>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="/xswnb">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
 </div>
 
 
-</div>
-      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-      <ul class="nav navbar-nav main-nav ">
-        
-        
-        <li class="menu-item menu-item-home">
-          <a href="/xswnb/.">
-            
-            <i class="icon icon-home-fill"></i>
-            
-            <span class="menu-title">首页</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/xswnb/archives">
-            
-            <i class="icon icon-archives-fill"></i>
-            
-            <span class="menu-title">归档</span>
-          </a>
-        </li>
-        
-      </ul>
-      
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/xswnb" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-    </ul>
 
-    </nav>
-  </div>
-</header>
-
-  
-    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    
-      <div class="widget">
-    <h3 class="widget-title">公告</h3>
-    <div class="widget-body">
-        <div id="board">
-            <div class="content">
-                <p>欢迎交流与分享经验!</p>
-            </div>
-        </div>
-    </div>
+<body>
+<aside class="nav mobile">
+    <div class="nav-left">
+        <a href="/xswnb/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/xswnb/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>John Doe</span>
 </div>
 
+<div class="icon">
     
-      
-
-    
-      
-
-    
-      
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/xswnb/archives/2024/02/">二月 2024</a><span class="archive-list-count">5</span></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget-body">
-      <ul class="recent-post-list list-unstyled no-thumbnail">
         
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
+            <a title="github"
+               href="https://github.com/yelog"
+               target="_blank">
                 
-              </p>
-              <p class="item-title">
-                <a href="/xswnb/2024/02/22/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/AXI%E5%8D%8F%E8%AE%AE/" class="title">AXI协议</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-02-22T08:15:27.000Z" itemprop="datePublished">2024-02-22</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
                 
-              </p>
-              <p class="item-title">
-                <a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/%E4%B8%83%E4%BA%BA%E8%A1%A8%E5%86%B3%E5%99%A8/" class="title">七人表决器</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-02-21T12:58:07.000Z" itemprop="datePublished">2024-02-21</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/pingpong-buffer/" class="title">pingpong_buffer</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-02-21T12:51:33.000Z" itemprop="datePublished">2024-02-21</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C/" class="title">奇偶校验</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-02-21T12:46:28.000Z" itemprop="datePublished">2024-02-21</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                
-              </p>
-              <p class="item-title">
-                <a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/" class="title">FSM售卖机</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2024-02-21T09:48:23.000Z" itemprop="datePublished">2024-02-21</time>
-              </p>
-            </div>
-          </li>
-          
-      </ul>
-    </div>
-  </div>
-  
-
-    
-  </div>
-</aside>
-
-  
-  
-<main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档: 2024</h1>
-	      <p class="text-muted">共 5 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
-    
-    
-      
-      
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2024" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2024
             </a>
-            <!-- <a href="/xswnb/archives/2024" class="archive-year">2024</a> -->
-          </h3>
-        </div>
-        <div id="collapse2024" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2024">
-        <div class="panel-body">
-          <div class="collection">
-    
-    
-<a href="/xswnb/2024/02/22/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/AXI%E5%8D%8F%E8%AE%AE/" class="collection-item"   itemprop="url">
-  <time datetime="2024-02-22T08:15:27.000Z" itemprop="datePublished">2024-02-22</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> AXI协议
-</a>
-
-
-  
-    
-    
-    
-<a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/%E4%B8%83%E4%BA%BA%E8%A1%A8%E5%86%B3%E5%99%A8/" class="collection-item"   itemprop="url">
-  <time datetime="2024-02-21T12:58:07.000Z" itemprop="datePublished">2024-02-21</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 七人表决器
-</a>
-
-
-  
-    
-    
-    
-<a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/pingpong-buffer/" class="collection-item"   itemprop="url">
-  <time datetime="2024-02-21T12:51:33.000Z" itemprop="datePublished">2024-02-21</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> pingpong_buffer
-</a>
-
-
-  
-    
-    
-    
-<a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C/" class="collection-item"   itemprop="url">
-  <time datetime="2024-02-21T12:46:28.000Z" itemprop="datePublished">2024-02-21</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> 奇偶校验
-</a>
-
-
-  
-    
-    
-    
-<a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/" class="collection-item"   itemprop="url">
-  <time datetime="2024-02-21T09:48:23.000Z" itemprop="datePublished">2024-02-21</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> FSM售卖机
-</a>
-
-
-  
-  
-    </div></div></div></section>
-  
-
-	    </div>
-  	</article>
-  	 	
-</main>
-
-  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-	
-	
-    <ul class="social-links">
-    	
-        <li><a href="https://github.com/xswnb" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
         
-    </ul>
+    
+        
+    
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:jaytp@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
 
-    <div class="copyright">
-    	
-        <div class="publishby">
-        	 <a target="_blank"> 需要合作请联系qq2995549038 </a>.
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(5)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Verilog例程">
+            
+            Verilog例程
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="5">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
         </div>
     </div>
-</footer>
-  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script>
-window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
-</script>
 
-<script src="/xswnb/js/plugin.min.js"></script>
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
 
+</div>
 
-<script src="/xswnb/js/application.js"></script>
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 Verilog例程 "
+           href="/xswnb/2024/02/22/AXI%E5%8D%8F%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="AXI协议">AXI协议</span>
+            <span class="post-date" title="2024-02-22 16:15:27">2024/02/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/xswnb/2024/02/21/%E4%B8%83%E4%BA%BA%E8%A1%A8%E5%86%B3%E5%99%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="七人表决器">七人表决器</span>
+            <span class="post-date" title="2024-02-21 20:58:07">2024/02/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/xswnb/2024/02/21/pingpong-buffer/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="pingpong_buffer">pingpong_buffer</span>
+            <span class="post-date" title="2024-02-21 20:51:33">2024/02/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/xswnb/2024/02/21/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="奇偶校验">奇偶校验</span>
+            <span class="post-date" title="2024-02-21 20:46:28">2024/02/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/xswnb/2024/02/21/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="FSM售卖机">FSM售卖机</span>
+            <span class="post-date" title="2024-02-21 17:48:23">2024/02/21</span>
+        </a>
+        
+        <div id="no-item-tips">
 
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
 
-    <script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/xswnb/',
-        CONTENT_URL: '/xswnb/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post" class="index">
+    <div class="pjax">
+        <article class="index">
+            <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-text">对博客的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%8F%B6%E8%90%BD%E9%98%81"><span class="toc-text">关于叶落阁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%9A%E5%AE%A2%E5%B9%B3%E5%8F%B0"><span class="toc-text">博客平台</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
+<blockquote>
+<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
+</blockquote>
+<blockquote>
+<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
+</blockquote>
+<blockquote>
+<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
+</blockquote>
+<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
+<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
+<h2 id="关于叶落阁"><a href="#关于叶落阁" class="headerlink" title="关于叶落阁"></a>关于叶落阁</h2><p><strong>叶落阁</strong> 是阁主（杨玉杰）的个人站。</p>
+<p>到目前为止已经写了<code class="article_number"></code>篇文章， 共<code class="site_word_count"></code>字。</p>
+<p>本站访问人数：<code class="site_uv"></code>人次 ， 访问量：<code class="site_pv"></code>次</p>
+<h2 id="博客平台"><a href="#博客平台" class="headerlink" title="博客平台"></a>博客平台</h2><p>这个博客通过 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> 生成，部署在 <a target="_blank" rel="noopener" href="https://pages.github.com/">GitHub Pages</a>主题 <a target="_blank" rel="noopener" href="https://github.com/yelog/hexo-theme-3-hexo">3-hexo</a> 已经在github上开源</p>
+<p><code>3-hexo</code> 主题使用交流可以加 Q群: <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=e8cf083cc097141eaf323396f1766809b8e90ff00c67bb441898f672892f6904"><img data-ignore border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="3-hexo使用交流" title="3-hexo使用交流"></a></p>
+<p>主要功能：</p>
+<ul>
+<li>搜索支持文章标题、标签(#标签)、作者(@作者)</li>
+<li>pad&#x2F;手机等移动端适配</li>
+<li>页面全局快捷键 <a target="_blank" rel="noopener" href='http://yelog.org/2017/03/24/3-hexo-shortcuts/'>3-hexo快捷键说明</a></li>
+</ul>
 
-<script src="/xswnb/js/insight.js"></script>
+        </article>
+        
+        <p>
+            <a  class="dashang" onclick="dashangToggle()">赏</a>
+        </p>
+        
+        
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
+    </div>
+</div>
+<div class="full-toc">
+    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
 
+</div>
 
-
-
-
-
-
-
-
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/xswnb/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/xswnb/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
 
 
 </body>
+<script src="/xswnb/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/xswnb/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
 </html>

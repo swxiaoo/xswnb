@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>pingpong_buffer | Hexo</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="pingpong_buffer | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="创建一份图文并茂的AXI协议教程需要详细介绍AXI的核心概念、操作模式、传输类型等。我会以Markdown格式编写，包含基本的AXI介绍、关键特性、主要信号描述，并结合一些简单的WaveDrom图和Mermaid图来直观展示AXI传输的过程。  AXI协议教程简介高级外设互连(AXI)是高级微控制器总线架构(AMBA)的一部分，由ARM推出，用于高性能、高带宽、低延迟的片上通信。AXI协议支持高速">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AXI协议">
+<meta property="og:url" content="https://xswnb.github.io/xswnb/2024/02/22/AXI%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="创建一份图文并茂的AXI协议教程需要详细介绍AXI的核心概念、操作模式、传输类型等。我会以Markdown格式编写，包含基本的AXI介绍、关键特性、主要信号描述，并结合一些简单的WaveDrom图和Mermaid图来直观展示AXI传输的过程。  AXI协议教程简介高级外设互连(AXI)是高级微控制器总线架构(AMBA)的一部分，由ARM推出，用于高性能、高带宽、低延迟的片上通信。AXI协议支持高速">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-02-22T08:15:27.000Z">
+<meta property="article:modified_time" content="2024-02-22T09:05:33.691Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/xswnb/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/xswnb/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/xswnb/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/xswnb/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 7.1.1"><link rel="alternate" href="/xswnb/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="/xswnb">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/xswnb/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/xswnb/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>John Doe</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/yelog"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+            <a title="email"
+               href="mailto:jaytp@qq.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=872336115&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(5)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                
+    <li>
+        <div data-rel="Verilog例程">
+            
+            Verilog例程
+            <small>(1)</small>
+        </div>
+        
+    </li>
+
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+            <a class="about  hasFriend  site_url"
+               
+               href="/about">关于</a>
+        
+        <a style="width: 50%"
+                
+                                           class="friends">友链</a>
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="5">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+    </div>
+
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        
+        <a  class="全部文章 Verilog例程 "
+           href="/xswnb/2024/02/22/AXI%E5%8D%8F%E8%AE%AE/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="AXI协议">AXI协议</span>
+            <span class="post-date" title="2024-02-22 16:15:27">2024/02/22</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/xswnb/2024/02/21/%E4%B8%83%E4%BA%BA%E8%A1%A8%E5%86%B3%E5%99%A8/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="七人表决器">七人表决器</span>
+            <span class="post-date" title="2024-02-21 20:58:07">2024/02/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/xswnb/2024/02/21/pingpong-buffer/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="pingpong_buffer">pingpong_buffer</span>
+            <span class="post-date" title="2024-02-21 20:51:33">2024/02/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/xswnb/2024/02/21/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="奇偶校验">奇偶校验</span>
+            <span class="post-date" title="2024-02-21 20:46:28">2024/02/21</span>
+        </a>
+        
+        
+        <a  class="全部文章 "
+           href="/xswnb/2024/02/21/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="FSM售卖机">FSM售卖机</span>
+            <span class="post-date" title="2024-02-21 17:48:23">2024/02/21</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-pingpong-buffer" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">pingpong_buffer</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2024-02-21 20:53:03'>2024-02-21 20:51</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Verilog%E4%B8%AD%E7%9A%84%E4%B9%92%E4%B9%93%E7%BC%93%E5%86%B2%E5%8C%BA%E8%AE%BE%E8%AE%A1%E6%95%99%E7%A8%8B"><span class="toc-text">Verilog中的乒乓缓冲区设计教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87"><span class="toc-text">设计目标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%AD%A5%E9%AA%A4"><span class="toc-text">设计步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9D%97%E5%92%8C%E7%AB%AF%E5%8F%A3"><span class="toc-text">1. 定义模块和端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%9A%E4%B9%89%E5%86%85%E9%83%A8%E7%8A%B6%E6%80%81%E5%92%8C%E5%8F%82%E6%95%B0"><span class="toc-text">2. 定义内部状态和参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%86%99%E5%85%A5%E9%80%BB%E8%BE%91"><span class="toc-text">3. 写入逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E8%AF%BB%E5%8F%96%E9%80%BB%E8%BE%91"><span class="toc-text">4. 读取逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E7%BC%93%E5%86%B2%E5%8C%BA%E6%BB%A1%E4%BF%A1%E5%8F%B7"><span class="toc-text">5. 缓冲区满信号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%A8%A1%E5%9D%97%E7%BB%93%E6%9D%9F"><span class="toc-text">6. 模块结束</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Verilog中的乒乓缓冲区设计教程"><a href="#Verilog中的乒乓缓冲区设计教程" class="headerlink" title="Verilog中的乒乓缓冲区设计教程"></a>Verilog中的乒乓缓冲区设计教程</h1><p>在这篇教程中，我们将通过设计一个乒乓缓冲区来学习如何使用Verilog语言。乒乓缓冲区是一种在硬件设计中常用的技术，用于提高数据处理的效率，特别是在数据流应用中。它涉及到两个缓冲区的使用，一次使用一个，而另一个则在后台准备数据，以此实现无缝数据流。</p>
+<h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><p>我们的目标是设计一个乒乓缓冲区，它可以：</p>
+<ol>
+<li>在一个缓冲区被读取时，另一个缓冲区被填充。</li>
+<li>自动切换当前的活动缓冲区，保证数据的连续流动。</li>
+</ol>
+<h2 id="设计步骤"><a href="#设计步骤" class="headerlink" title="设计步骤"></a>设计步骤</h2><h3 id="1-定义模块和端口"><a href="#1-定义模块和端口" class="headerlink" title="1. 定义模块和端口"></a>1. 定义模块和端口</h3><p>首先，定义乒乓缓冲区的模块和端口。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> PingPongBuffer(</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> clk,</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> reset,</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> write_enable, <span class="comment">// 写使能信号</span></span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> [<span class="number">7</span>:<span class="number">0</span>] data_in, <span class="comment">// 输入数据</span></span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] data_out, <span class="comment">// 输出数据</span></span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">wire</span> buffer_full <span class="comment">// 缓冲区满信号</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-定义内部状态和参数"><a href="#2-定义内部状态和参数" class="headerlink" title="2. 定义内部状态和参数"></a>2. 定义内部状态和参数</h3><p>接下来，定义内部的状态，包括两个缓冲区和一个指示当前活动缓冲区的标志。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] buffer_A[<span class="number">255</span>:<span class="number">0</span>]; <span class="comment">// 缓冲区A</span></span><br><span class="line"><span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] buffer_B[<span class="number">255</span>:<span class="number">0</span>]; <span class="comment">// 缓冲区B</span></span><br><span class="line"><span class="keyword">reg</span> buffer_select; <span class="comment">// 缓冲区选择标志，0表示A，1表示B</span></span><br><span class="line"><span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] write_ptr; <span class="comment">// 写指针</span></span><br><span class="line"><span class="keyword">reg</span> [<span class="number">7</span>:<span class="number">0</span>] read_ptr; <span class="comment">// 读指针</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-写入逻辑"><a href="#3-写入逻辑" class="headerlink" title="3. 写入逻辑"></a>3. 写入逻辑</h3><p>定义数据写入缓冲区的逻辑。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">if</span> (reset) <span class="keyword">begin</span></span><br><span class="line">        write_ptr &lt;= <span class="number">0</span>;</span><br><span class="line">        buffer_select &lt;= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (write_enable) <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (buffer_select == <span class="number">0</span>) buffer_A[write_ptr] &lt;= data_in;</span><br><span class="line">        <span class="keyword">else</span> buffer_B[write_ptr] &lt;= data_in;</span><br><span class="line">        </span><br><span class="line">        write_ptr &lt;= write_ptr + <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (write_ptr == <span class="number">255</span>) <span class="keyword">begin</span></span><br><span class="line">            buffer_select &lt;= ~buffer_select; <span class="comment">// 切换缓冲区</span></span><br><span class="line">            write_ptr &lt;= <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-读取逻辑"><a href="#4-读取逻辑" class="headerlink" title="4. 读取逻辑"></a>4. 读取逻辑</h3><p>定义从当前非活动缓冲区读取数据的逻辑。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">always</span> @(<span class="keyword">posedge</span> clk) <span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">if</span> (reset) read_ptr &lt;= <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">if</span> (buffer_select == <span class="number">0</span>) data_out &lt;= buffer_B[read_ptr];</span><br><span class="line">        <span class="keyword">else</span> data_out &lt;= buffer_A[read_ptr];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (read_ptr != write_ptr) read_ptr &lt;= read_ptr + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-缓冲区满信号"><a href="#5-缓冲区满信号" class="headerlink" title="5. 缓冲区满信号"></a>5. 缓冲区满信号</h3><p>实现一个简单的缓冲区满信号逻辑。</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assign</span> buffer_full = (write_ptr == <span class="number">255</span>) ? <span class="number">1&#x27;b1</span> : <span class="number">1&#x27;b0</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-模块结束"><a href="#6-模块结束" class="headerlink" title="6. 模块结束"></a>6. 模块结束</h3><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过本教程，我们学习了如何使用Verilog设计一个乒乓缓冲区。这个例子展示了乒乓缓冲区的基本概念，以及如何使用状态机和条件逻辑来管理两个缓冲区的交替使用。希望这能帮助你在进行数据流管理和优化时有一个好的开始。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 jaytp@qq.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 Yelog
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/xswnb/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/xswnb/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/xswnb/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/xswnb/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

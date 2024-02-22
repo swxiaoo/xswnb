@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xswnb.github.io/xswnb/2024/02/22/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/AXI%E5%8D%8F%E8%AE%AE/</loc>
+    <loc>https://xswnb.github.io/xswnb/2024/02/22/AXI%E5%8D%8F%E8%AE%AE/</loc>
     
     <lastmod>2024-02-22</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://xswnb.github.io/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/%E4%B8%83%E4%BA%BA%E8%A1%A8%E5%86%B3%E5%99%A8/</loc>
+    <loc>https://xswnb.github.io/xswnb/2024/02/21/%E4%B8%83%E4%BA%BA%E8%A1%A8%E5%86%B3%E5%99%A8/</loc>
     
     <lastmod>2024-02-21</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://xswnb.github.io/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C/</loc>
+    <loc>https://xswnb.github.io/xswnb/2024/02/21/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C/</loc>
     
     <lastmod>2024-02-21</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://xswnb.github.io/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/pingpong-buffer/</loc>
+    <loc>https://xswnb.github.io/xswnb/2024/02/21/pingpong-buffer/</loc>
     
     <lastmod>2024-02-21</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://xswnb.github.io/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/</loc>
+    <loc>https://xswnb.github.io/xswnb/2024/02/21/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/</loc>
     
     <lastmod>2024-02-21</lastmod>
     
@@ -56,5 +56,12 @@
 
   
 
+  
+  <url>
+    <loc>https://xswnb.github.io/xswnb/categories/Verilog%E4%BE%8B%E7%A8%8B/</loc>
+    <lastmod>2024-02-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
 </urlset>
