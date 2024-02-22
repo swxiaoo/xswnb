@@ -17,20 +17,20 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>FSM售卖机 | Hexo</title>
-  <meta name="description" content="Verilog中的自动售卖机FSM设计教程在这篇教程中，我们将通过设计一个简单的自动售卖机来学习如何使用Verilog语言实现有限状态机（FSM）。自动售卖机将接受两种硬币：5元和10元，以售卖一个15元的商品为例。 设计目标我们的目标是设计一个FSM，它可以：  接受5元和10元两种输入 当累计金额达到商品价格15元时，释放商品 如果投入超过商品价格，计算并返回找零  设计步骤1. 定义状态首先">
+  <title>AXI协议 | Hexo</title>
+  <meta name="description" content="创建一份图文并茂的AXI协议教程需要详细介绍AXI的核心概念、操作模式、传输类型等。我会以Markdown格式编写，包含基本的AXI介绍、关键特性、主要信号描述，并结合一些简单的WaveDrom图和Mermaid图来直观展示AXI传输的过程。  AXI协议教程简介高级外设互连(AXI)是高级微控制器总线架构(AMBA)的一部分，由ARM推出，用于高性能、高带宽、低延迟的片上通信。AXI协议支持高速">
 <meta property="og:type" content="article">
-<meta property="og:title" content="FSM售卖机">
-<meta property="og:url" content="https://xswnb.github.io/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/index.html">
+<meta property="og:title" content="AXI协议">
+<meta property="og:url" content="https://xswnb.github.io/xswnb/2024/02/22/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/AXI%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Verilog中的自动售卖机FSM设计教程在这篇教程中，我们将通过设计一个简单的自动售卖机来学习如何使用Verilog语言实现有限状态机（FSM）。自动售卖机将接受两种硬币：5元和10元，以售卖一个15元的商品为例。 设计目标我们的目标是设计一个FSM，它可以：  接受5元和10元两种输入 当累计金额达到商品价格15元时，释放商品 如果投入超过商品价格，计算并返回找零  设计步骤1. 定义状态首先">
+<meta property="og:description" content="创建一份图文并茂的AXI协议教程需要详细介绍AXI的核心概念、操作模式、传输类型等。我会以Markdown格式编写，包含基本的AXI介绍、关键特性、主要信号描述，并结合一些简单的WaveDrom图和Mermaid图来直观展示AXI传输的过程。  AXI协议教程简介高级外设互连(AXI)是高级微控制器总线架构(AMBA)的一部分，由ARM推出，用于高性能、高带宽、低延迟的片上通信。AXI协议支持高速">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-02-21T09:48:23.000Z">
-<meta property="article:modified_time" content="2024-02-21T09:52:34.489Z">
+<meta property="article:published_time" content="2024-02-22T08:15:27.000Z">
+<meta property="article:modified_time" content="2024-02-22T08:18:59.904Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://xswnb.github.io/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/index.html">
+  <link rel="canonical" href="https://xswnb.github.io/xswnb/2024/02/22/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/AXI%E5%8D%8F%E8%AE%AE/index.html">
   
   
     <link rel="icon" href="/favicon.png" type="image/x-icon">
@@ -257,14 +257,14 @@
   
 <main class="main" role="main">
   <div class="content">
-  <article id="post-verilog例程/FSM售卖机" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-技术学习/AXI协议" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      FSM售卖机
+      AXI协议
     </h1>
   
 
@@ -272,8 +272,8 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/" class="article-date">
-	  <time datetime="2024-02-21T09:48:23.000Z" itemprop="datePublished">2024-02-21</time>
+	<a href="/xswnb/2024/02/22/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/AXI%E5%8D%8F%E8%AE%AE/" class="article-date">
+	  <time datetime="2024-02-22T08:15:27.000Z" itemprop="datePublished">2024-02-22</time>
 	</a>
 </span>
         
@@ -281,35 +281,81 @@
 
         
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/#comments" class="article-comment-link">评论</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/xswnb/2024/02/22/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/AXI%E5%8D%8F%E8%AE%AE/#comments" class="article-comment-link">评论</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h1 id="Verilog中的自动售卖机FSM设计教程"><a href="#Verilog中的自动售卖机FSM设计教程" class="headerlink" title="Verilog中的自动售卖机FSM设计教程"></a>Verilog中的自动售卖机FSM设计教程</h1><p>在这篇教程中，我们将通过设计一个简单的自动售卖机来学习如何使用Verilog语言实现有限状态机（FSM）。自动售卖机将接受两种硬币：5元和10元，以售卖一个15元的商品为例。</p>
-<h2 id="设计目标"><a href="#设计目标" class="headerlink" title="设计目标"></a>设计目标</h2><p>我们的目标是设计一个FSM，它可以：</p>
-<ul>
-<li>接受5元和10元两种输入</li>
-<li>当累计金额达到商品价格15元时，释放商品</li>
-<li>如果投入超过商品价格，计算并返回找零</li>
+        <p>创建一份图文并茂的AXI协议教程需要详细介绍AXI的核心概念、操作模式、传输类型等。我会以Markdown格式编写，包含基本的AXI介绍、关键特性、主要信号描述，并结合一些简单的WaveDrom图和Mermaid图来直观展示AXI传输的过程。</p>
+<hr>
+<h1 id="AXI协议教程"><a href="#AXI协议教程" class="headerlink" title="AXI协议教程"></a>AXI协议教程</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>高级外设互连(AXI)是高级微控制器总线架构(AMBA)的一部分，由ARM推出，用于高性能、高带宽、低延迟的片上通信。AXI协议支持高速数据传输，并提供了灵活的连接方式，使其成为了系统级芯片(SoC)设计中的首选协议。</p>
+<h2 id="AXI的关键特性"><a href="#AXI的关键特性" class="headerlink" title="AXI的关键特性"></a>AXI的关键特性</h2><ul>
+<li><strong>高性能</strong>: 支持高频率操作和低延迟接入。</li>
+<li><strong>高带宽</strong>: 多通道设计支持并行数据传输。</li>
+<li><strong>低功耗</strong>: 有效的信号定义减少了功耗。</li>
+<li><strong>灵活性</strong>: 支持各种数据宽度和传输类型，适用于多种应用场景。</li>
 </ul>
-<h2 id="设计步骤"><a href="#设计步骤" class="headerlink" title="设计步骤"></a>设计步骤</h2><h3 id="1-定义状态"><a href="#1-定义状态" class="headerlink" title="1. 定义状态"></a>1. 定义状态</h3><p>首先，我们需要定义FSM的所有可能状态。对于自动售卖机，我们可以设定以下状态：</p>
-<ul>
-<li><code>S0</code>：初始状态（无钱）</li>
-<li><code>S5</code>：已接收5元</li>
-<li><code>S10</code>：已接收10元</li>
-<li><code>S15</code>：已累计15元，准备释放商品并返回初始状态</li>
-</ul>
-<h3 id="2-定义输入"><a href="#2-定义输入" class="headerlink" title="2. 定义输入"></a>2. 定义输入</h3><p>我们的自动售卖机接受两种输入：</p>
-<ul>
-<li><code>coin5</code>：投入5元</li>
-<li><code>coin10</code>：投入10元</li>
-</ul>
-<h3 id="3-状态转移和输出逻辑"><a href="#3-状态转移和输出逻辑" class="headerlink" title="3. 状态转移和输出逻辑"></a>3. 状态转移和输出逻辑</h3><p>接下来，我们需要定义在各种输入下，从一个状态到另一个状态的转移，以及相应的输出行为。</p>
-<h3 id="4-Verilog代码实现"><a href="#4-Verilog代码实现" class="headerlink" title="4. Verilog代码实现"></a>4. Verilog代码实现</h3><h4 id="定义模块和端口"><a href="#定义模块和端口" class="headerlink" title="定义模块和端口"></a>定义模块和端口</h4><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> VendingMachineFSM(</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> clk,</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> reset,</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> coin5,</span><br><span class="line">    <span class="keyword">input</span> <span class="keyword">wire</span> coin10,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> <span class="keyword">release</span>,</span><br><span class="line">    <span class="keyword">output</span> <span class="keyword">reg</span> [<span class="number">1</span>:<span class="number">0</span>] change</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">//状态和参数定义</span></span><br><span class="line"><span class="keyword">reg</span> [<span class="number">1</span>:<span class="number">0</span>] state;</span><br><span class="line"><span class="keyword">reg</span> [<span class="number">1</span>:<span class="number">0</span>] next_state;</span><br><span class="line"></span><br><span class="line"><span class="keyword">parameter</span> S0 = <span class="number">2&#x27;b00</span>, S5 = <span class="number">2&#x27;b01</span>, S10 = <span class="number">2&#x27;b10</span>, S15 = <span class="number">2&#x27;b11</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//状态转移逻辑</span></span><br><span class="line"><span class="keyword">always</span> @(<span class="keyword">posedge</span> clk <span class="keyword">or</span> <span class="keyword">posedge</span> reset) <span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">if</span> (reset) state &lt;= S0;</span><br><span class="line">    <span class="keyword">else</span> state &lt;= next_state;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//下一个状态和输出的决定</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">always</span> @(*) <span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">case</span> (state)</span><br><span class="line">        S0: <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">if</span> (coin5) next_state = S5;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (coin10) next_state = S10;</span><br><span class="line">            <span class="keyword">else</span> next_state = S0;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        S5: <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">if</span> (coin5) next_state = S10;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (coin10) next_state = S15;</span><br><span class="line">            <span class="keyword">else</span> next_state = S5;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        S10: <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">if</span> (coin5) next_state = S15;</span><br><span class="line">            <span class="keyword">else</span> next_state = S10;</span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        S15: <span class="keyword">begin</span></span><br><span class="line">            next_state = S0; <span class="comment">// 商品释放后返回初始状态</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">default</span>: next_state = S0;</span><br><span class="line">    <span class="keyword">endcase</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//控制输出</span></span><br><span class="line"><span class="keyword">always</span> @(state) <span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">case</span> (state)</span><br><span class="line">        S15: <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">release</span> = <span class="number">1&#x27;b1</span>;</span><br><span class="line">            change = <span class="number">0</span>; <span class="comment">// 假设顾客投入金额恰好</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        <span class="keyword">default</span>: <span class="keyword">begin</span></span><br><span class="line">            <span class="keyword">release</span> = <span class="number">1&#x27;b0</span>;</span><br><span class="line">            change = <span class="number">0</span>; <span class="comment">// 无需找零</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">endcase</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+<h2 id="AXI通信模型"><a href="#AXI通信模型" class="headerlink" title="AXI通信模型"></a>AXI通信模型</h2><p>AXI协议定义了五种不同的通道：</p>
+<ol>
+<li><strong>写地址通道 (AW)</strong>: 传输写操作的目的地址信息。</li>
+<li><strong>写数据通道 (W)</strong>: 传输写操作的数据。</li>
+<li><strong>写响应通道 (B)</strong>: 传输写操作的完成状态。</li>
+<li><strong>读地址通道 (AR)</strong>: 传输读操作的目的地址信息。</li>
+<li><strong>读数据通道 (R)</strong>: 传输读操作返回的数据。</li>
+</ol>
+<p>每个通道都有其独立的控制信号，支持并行操作，提高了数据传输的效率。</p>
+<h2 id="AXI主要信号"><a href="#AXI主要信号" class="headerlink" title="AXI主要信号"></a>AXI主要信号</h2><table>
+<thead>
+<tr>
+<th align="center">信号类型</th>
+<th align="center">信号名称</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">公共</td>
+<td align="center">VALID</td>
+<td align="left">表示当前通道上的数据是有效的</td>
+</tr>
+<tr>
+<td align="center">公共</td>
+<td align="center">READY</td>
+<td align="left">表示目标准备好接收数据</td>
+</tr>
+<tr>
+<td align="center">地址</td>
+<td align="center">ADDR</td>
+<td align="left">传输操作的目标地址</td>
+</tr>
+<tr>
+<td align="center">数据</td>
+<td align="center">DATA</td>
+<td align="left">传输的数据</td>
+</tr>
+<tr>
+<td align="center">控制</td>
+<td align="center">LEN</td>
+<td align="left">传输的长度</td>
+</tr>
+<tr>
+<td align="center">控制</td>
+<td align="center">SIZE</td>
+<td align="left">每次传输的大小</td>
+</tr>
+<tr>
+<td align="center">控制</td>
+<td align="center">BURST</td>
+<td align="left">传输模式</td>
+</tr>
+</tbody></table>
+<h2 id="AXI传输例子"><a href="#AXI传输例子" class="headerlink" title="AXI传输例子"></a>AXI传输例子</h2><p>下面是使用WaveDrom图展示的一个简单的AXI读操作例子：<br><a target="_blank" rel="noopener" href="https://wavedrom.com/editor.html">WaveDrom在线编辑</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123; signal: [</span><br><span class="line">  &#123; name: &#x27;CLK&#x27;, wave: &#x27;p.....|...&#x27; &#125;,</span><br><span class="line">  &#123; name: &#x27;ARVALID&#x27;, wave: &#x27;01...0|...&#x27; &#125;,</span><br><span class="line">  &#123; name: &#x27;ARREADY&#x27;, wave: &#x27;010...|...&#x27;, phase:0.5 &#125;,</span><br><span class="line">  &#123; name: &#x27;RVALID&#x27;, wave: &#x27;0...10|...&#x27;, phase:0.5 &#125;,</span><br><span class="line">  &#123; name: &#x27;RREADY&#x27;, wave: &#x27;01...0|...&#x27; &#125;,</span><br><span class="line">  &#123; name: &#x27;RDATA&#x27;, wave: &#x27;x...=x|...&#x27;, data: [&#x27;Data&#x27;] &#125;</span><br><span class="line">]&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过本教程，我们学习了如何使用Verilog设计一个简单的自动售卖机FSM。这个例子展示了FSM的基本概念，状态定义，以及状态转移逻辑的实现方法。希望这能帮助你在使用Verilog进行数字设计时有一个好的开始。 </p>
+<p>这个例子展示了一个基本的读操作流程，包括地址阶段和数据阶段的信号变化。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>AXI协议是设计高性能系统级芯片(SoC)的重要基础。通过了解AXI的关键特性和通信模型，设计者可以有效地构建高效、灵活的通信架构。</p>
+<hr>
+<p>以上是AXI协议的一个基本教程，涵盖了AXI的核心概念和操作示例。你可以根据需要进一步深入了解AXI协议的细节，例如具体的信号定义、传输类型和操作模式等。希望这份教程能帮助你更好地理解和使用AXI协议。</p>
 
       
     </div>
@@ -319,7 +365,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://xswnb.github.io/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/FSM%E5%94%AE%E5%8D%96%E6%9C%BA/" title="FSM售卖机" target="_blank" rel="external">https://xswnb.github.io/xswnb/2024/02/21/verilog例程/FSM售卖机/</a>
+      <a href="https://xswnb.github.io/xswnb/2024/02/22/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/AXI%E5%8D%8F%E8%AE%AE/" title="AXI协议" target="_blank" rel="external">https://xswnb.github.io/xswnb/2024/02/22/技术学习/AXI协议/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -365,10 +411,10 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/%E5%A5%87%E5%81%B6%E6%A0%A1%E9%AA%8C/" title="奇偶校验"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
-    </li>
     
+    <li class="next">
+      <a href="/xswnb/2024/02/21/verilog%E4%BE%8B%E7%A8%8B/%E4%B8%83%E4%BA%BA%E8%A1%A8%E5%86%B3%E5%99%A8/" title="七人表决器"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
     
   </ul>
